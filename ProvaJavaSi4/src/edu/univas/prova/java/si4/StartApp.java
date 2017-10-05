@@ -25,6 +25,7 @@ public class StartApp extends JFrame { /**
 		this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		this.setSize(500, 450);
 		this.setLocationRelativeTo(null);
+		this.setResizable(false);
 		setPane();
 		addComponents();
 		this.setVisible(true);
@@ -39,7 +40,7 @@ public class StartApp extends JFrame { /**
 	public void addComponents() {
 		JPanel paneLeft = new JPanel();
 		paneLeft.setBackground(Color.GRAY);
-		paneLeft.setPreferredSize(new Dimension(150, 450));
+		paneLeft.setPreferredSize(new Dimension(140, 450));
 		contentPanel.add(paneLeft, BorderLayout.WEST);
 		
 		addButton(paneLeft);
@@ -49,43 +50,50 @@ public class StartApp extends JFrame { /**
 		
 		GridBagConstraints gbc = new GridBagConstraints();
 		
+		
 		JLabel nome = new JLabel();
 		nome.setText("Nome: ");
 		gbc.gridx = 0;
 		gbc.gridy = 0;
-		gbc.insets = new Insets(10, 10, 10, 10);
+		gbc.insets = new Insets(12, 12, 12, 12);
 		gribag.add(nome, gbc);
 		
 		JTextField campoNome = new JTextField();
 		gbc.gridx = 1;
 		gbc.gridy = 0;
 		gbc.weightx = 1.0;
-		campoNome.setPreferredSize(new Dimension(240, 20));
+		campoNome.setPreferredSize(new Dimension(260, 20));
 		gribag.add(campoNome, gbc);
 		
 		JLabel email = new JLabel();
 		email.setText("E-mail: ");
 		gbc.gridx = 0;
 		gbc.gridy = 1;
-		gbc.insets = new Insets(10, 10, 10, 10);
+		gbc.insets = new Insets(12, 12, 12, 12);
 		gribag.add(email, gbc);
 		
 		JTextField campoEmail = new JTextField();
 		gbc.gridx = 1;
 		gbc.gridy = 1;
 		gbc.weightx = 1.0;
-		campoEmail.setPreferredSize(new Dimension(240, 20));
+		campoEmail.setPreferredSize(new Dimension(260, 20));
 		gribag.add(campoEmail, gbc);
-		
 		
 		
 		JButton salvar = new JButton();
 		salvar.setText("Salvar");
-		
+
+		gbc.gridx = 0;
 		gbc.gridy = 2;
+		gbc.anchor = GridBagConstraints.CENTER;
+		gbc.fill = GridBagConstraints.NONE;
+		gbc.gridwidth = 2;
+		gbc.insets = new Insets(15, 15, 15, 15);
+		gbc.weightx = 0.0;
 		
 		gribag.add(salvar, gbc);
-		
+	
+		gbc.anchor = GridBagConstraints.CENTER;
 		String[] colunm = {"Nome", "CPF", "E-mail"};
 		Object[][] data = {
 				{"João", "111.111.111-11", "joao@gmail.com"},
@@ -93,7 +101,7 @@ public class StartApp extends JFrame { /**
 				{"José", "333.333.333-33", "jose@gmail.com"}
 		};
 		
-		
+	
 		JTable tabela = new JTable(data, colunm);
 		tabela.setFillsViewportHeight(true);
 		
@@ -102,7 +110,7 @@ public class StartApp extends JFrame { /**
 		JScrollPane scrollTabela = new JScrollPane(tabela);
 		scrollTabela.setVerticalScrollBarPolicy(ScrollPaneConstants.VERTICAL_SCROLLBAR_AS_NEEDED);
 		scrollTabela.setHorizontalScrollBarPolicy(ScrollPaneConstants.HORIZONTAL_SCROLLBAR_AS_NEEDED);
-		scrollTabela.setPreferredSize(new Dimension(253, 100));
+		scrollTabela.setPreferredSize(new Dimension(324, 100));
 		
 		gbc.gridx = 1;
 		gbc.gridy = 3;
@@ -110,6 +118,16 @@ public class StartApp extends JFrame { /**
 		gbc.gridwidth = 2;
 		gbc.anchor = GridBagConstraints.LINE_START;
 	
+	
+		
+		
+		
+		gbc.gridx = 0;
+		gbc.gridy = 4;
+		gbc.anchor = GridBagConstraints.CENTER;
+		
+		
+		
 		
 		gribag.add(scrollTabela, gbc);
 		
